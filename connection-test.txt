@@ -1,2 +1,1 @@
-ChatGPT write access verified on 2026-08-14.
-Cloudflare deployment retriggered on 2026-08-14 at 23:36 Europe/Berlin.
+Cloudflare Git deployment triggered after connection setup on 2026-08-14 at 23:41 Europe/Berlin.
