@@ -85,3 +85,9 @@
 /* Authentic workshop image */
 .laser-scene.workshop-photo{display:block;padding:0;background:#090a0c;overflow:hidden;box-shadow:0 28px 65px rgba(0,0,0,.48)}
 .workshop-photo>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+
+/* Language selector */
+.language-switcher{display:flex;align-items:center;gap:7px;margin-left:auto;white-space:nowrap;color:#5f5d58;font-size:10px;font-weight:700;letter-spacing:1.2px}
+.language-switcher a{color:#918b80;text-decoration:none;transition:.2s}.language-switcher a:hover{color:var(--gold2)}.language-switcher a.active{color:var(--gold2);border-bottom:1px solid var(--gold)}
+@media(max-width:1000px){.language-switcher{margin-left:14px;margin-right:10px}.header .language-switcher+ .button{display:none}}
+@media(max-width:620px){.language-switcher{gap:5px;margin-left:8px;margin-right:7px;font-size:9px}.header{padding-left:4vw;padding-right:4vw}.header .brand-logo{max-width:150px;object-fit:contain}}
