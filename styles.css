@@ -68,3 +68,10 @@
 .growth-usps h4{color:#d5c4ff}
 @media(max-width:1000px){.software-product .software-visual{height:620px;align-self:stretch}}
 @media(max-width:620px){.software-product .software-visual{height:540px}.usp-grid.expanded>div{min-height:0}}
+
+/* Software intro alignment fix */
+.software-intro{grid-template-areas:"label copy" "title copy";grid-template-columns:1.15fr .85fr;align-items:end}
+.software-intro>.eyebrow{grid-area:label;align-self:end;margin-bottom:18px}
+.software-intro>h2{grid-area:title}
+.software-intro>p:last-child{grid-area:copy;align-self:end;padding-bottom:5px}
+@media(max-width:1000px){.software-intro{grid-template-areas:"label" "title" "copy";grid-template-columns:1fr}.software-intro>.eyebrow{margin-bottom:0}.software-intro>p:last-child{padding-bottom:0}}
