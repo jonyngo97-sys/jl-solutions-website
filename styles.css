@@ -75,3 +75,9 @@
 .software-intro>h2{grid-area:title}
 .software-intro>p:last-child{grid-area:copy;align-self:end;padding-bottom:5px}
 @media(max-width:1000px){.software-intro{grid-template-areas:"label" "title" "copy";grid-template-columns:1fr}.software-intro>.eyebrow{margin-bottom:0}.software-intro>p:last-child{padding-bottom:0}}
+
+/* Photographic Smart QR showcase */
+.software-photo{background:#090a0c;padding:0}
+.software-photo:before{display:none}
+.software-photo>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+@media(max-width:1000px){.software-photo>img{object-position:center 58%}}
