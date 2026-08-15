@@ -94,3 +94,12 @@
 
 .language-switcher a{display:inline-flex;align-items:center;gap:4px}.language-switcher .lang-flag{display:inline-block;font-size:13px;line-height:1;filter:saturate(.88);transform:translateY(-.5px)}
 @media(max-width:620px){.language-switcher a{gap:3px}.language-switcher .lang-flag{font-size:12px}}
+
+
+/* Customer portal login */
+.customer-login{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:0 14px;border:1px solid rgba(198,154,69,.62);color:var(--gold2);background:rgba(198,154,69,.035);text-decoration:none;text-transform:uppercase;white-space:nowrap;font-size:9px;font-weight:700;letter-spacing:1.25px;transition:background .2s,border-color .2s,color .2s,transform .2s}
+.customer-login svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}
+.customer-login:hover{background:rgba(198,154,69,.14);border-color:var(--gold2);color:#fff;transform:translateY(-1px)}
+@media(max-width:1180px){.customer-login{padding:0 11px}.customer-login span{display:none}}
+@media(max-width:1000px){.customer-login{margin-left:2px;min-width:40px;padding:0 11px}.header>.customer-login+.button{display:none}}
+@media(max-width:620px){.customer-login{min-width:36px;min-height:34px;padding:0 9px}.customer-login svg{width:15px;height:15px}}
