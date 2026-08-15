@@ -91,3 +91,6 @@
 .language-switcher a{color:#918b80;text-decoration:none;transition:.2s}.language-switcher a:hover{color:var(--gold2)}.language-switcher a.active{color:var(--gold2);border-bottom:1px solid var(--gold)}
 @media(max-width:1000px){.language-switcher{margin-left:14px;margin-right:10px}.header .language-switcher+ .button{display:none}}
 @media(max-width:620px){.language-switcher{gap:5px;margin-left:8px;margin-right:7px;font-size:9px}.header{padding-left:4vw;padding-right:4vw}.header .brand-logo{max-width:150px;object-fit:contain}}
+
+.language-switcher a{display:inline-flex;align-items:center;gap:4px}.language-switcher .lang-flag{display:inline-block;font-size:13px;line-height:1;filter:saturate(.88);transform:translateY(-.5px)}
+@media(max-width:620px){.language-switcher a{gap:3px}.language-switcher .lang-flag{font-size:12px}}
