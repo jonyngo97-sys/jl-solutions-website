@@ -1,8 +1,12 @@
 document.getElementById('year').textContent=new Date().getFullYear();
 const toggle=document.querySelector('.nav-toggle');
 const nav=document.querySelector('.nav');
-toggle?.addEventListener('click',()=>nav.classList.toggle('open'));
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const setMenu=open=>{nav?.classList.toggle('open',open);toggle?.setAttribute('aria-expanded',String(open));toggle?.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen')};
+toggle?.setAttribute('aria-expanded','false');
+toggle?.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false)});
+window.addEventListener('resize',()=>{if(window.innerWidth>1000)setMenu(false)});
 const revealTargets=document.querySelectorAll('.cards article,.restaurant>div,.why>div,.steps article,.contact>div');
 revealTargets.forEach(el=>el.classList.add('reveal'));
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
