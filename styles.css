@@ -103,3 +103,198 @@
 @media(max-width:1180px){.customer-login{padding:0 11px}.customer-login span{display:none}}
 @media(max-width:1000px){.customer-login{margin-left:2px;min-width:40px;padding:0 11px}.header>.customer-login+.button{display:none}}
 @media(max-width:620px){.customer-login{min-width:36px;min-height:34px;padding:0 9px}.customer-login svg{width:15px;height:15px}}
+
+
+/* Mobile polish 2026-08 */
+@media(max-width:620px){
+  html,body{max-width:100%;overflow-x:hidden}
+  body{font-size:15px}
+  .header{
+    height:70px;
+    padding:0 14px;
+    gap:7px;
+  }
+  .header .brand{flex:0 1 auto;min-width:0}
+  .header .brand-logo{
+    width:104px;
+    max-width:104px;
+    height:58px;
+  }
+  .nav-toggle{
+    order:4;
+    flex:0 0 38px;
+    width:38px;
+    height:38px;
+    margin-left:0;
+    padding:0;
+    border-radius:0;
+    line-height:1;
+    cursor:pointer;
+  }
+  .nav{
+    top:70px;
+    max-height:calc(100dvh - 70px);
+    padding:12px 18px 22px;
+    gap:0;
+    overflow-y:auto;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 18px 35px rgba(0,0,0,.45);
+  }
+  .nav a{
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    padding:0 4px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    font-size:11px;
+  }
+  .language-switcher{
+    order:2;
+    flex:0 0 auto;
+    margin:0 1px 0 auto;
+    gap:4px;
+  }
+  .customer-login{
+    order:3;
+    flex:0 0 36px;
+    width:36px;
+    min-width:36px;
+    min-height:38px;
+    padding:0;
+  }
+  .hero{
+    min-height:0;
+    padding:48px 20px 58px;
+    gap:36px;
+  }
+  .hero h1{
+    font-size:clamp(38px,10.8vw,44px);
+    line-height:.94;
+    letter-spacing:-1.2px;
+  }
+  .hero-copy>p:not(.eyebrow){
+    margin:24px 0;
+    font-size:15px;
+    line-height:1.7;
+  }
+  .eyebrow{
+    margin-bottom:16px;
+    font-size:9px;
+    letter-spacing:2px;
+    line-height:1.55;
+  }
+  .actions{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:18px;
+  }
+  .actions .button{width:100%;text-align:center}
+  .hero-art{width:100%;aspect-ratio:4/3}
+  .feature-strip{padding:12px 20px}
+  .feature-strip article{
+    padding:23px 0;
+    border-right:0;
+  }
+  .section,.process,.restaurant,.why,.contact,.software-suite{
+    padding:68px 20px;
+  }
+  .section-head{gap:24px;margin-bottom:38px}
+  .section h2,.restaurant h2,.why h2,.process h2,.contact h2,.software-intro h2{
+    font-size:clamp(34px,9.6vw,42px);
+    line-height:.96;
+    letter-spacing:-.5px;
+    overflow-wrap:normal;
+    hyphens:auto;
+  }
+  .cards article{
+    min-height:0;
+    padding:30px 24px 34px;
+  }
+  .cards h3{font-size:21px}
+  .software-product{margin-top:20px}
+  .software-copy{padding:38px 22px 42px}
+  .software-copy h3{
+    font-size:clamp(31px,8.8vw,37px);
+    overflow-wrap:normal;
+    hyphens:auto;
+  }
+  .software-lead{margin:22px 0 26px;font-size:13px}
+  .usp-grid>div{padding:18px}
+  .software-copy>.button{width:100%;text-align:center}
+  .software-product .software-visual{height:auto;min-height:0}
+  .software-product .software-photo{height:420px;min-height:420px}
+  .software-photo>img{object-position:center}
+  .ai-visual{
+    height:auto!important;
+    min-height:0!important;
+    padding:38px 16px 40px;
+  }
+  .ai-director{padding:18px 15px;gap:12px}
+  .agent-icon{width:44px;height:44px;flex-basis:44px}
+  .ai-director strong{font-size:14px}
+  .agent{padding:15px}
+  .ai-status{max-width:100%;text-align:center}
+  .restaurant{gap:44px}
+  .restaurant .button{width:100%;text-align:center}
+  .material-showcase{height:400px}
+  .material-slide figcaption{
+    left:20px;
+    right:20px;
+    bottom:52px;
+  }
+  .slider-arrow{
+    width:44px;
+    height:44px;
+  }
+  .slider-prev{left:12px}
+  .slider-next{right:12px}
+  .slider-dots{
+    left:20px;
+    right:auto;
+    bottom:22px;
+  }
+  .laser-scene{height:360px}
+  .why{gap:44px}
+  .process h2{margin-bottom:38px}
+  .steps article{padding:25px 12px}
+  .contact{gap:38px}
+  .contact-card{
+    width:100%;
+    min-width:0;
+    padding:24px 20px;
+  }
+  .contact-card a{overflow-wrap:anywhere}
+  footer{
+    padding:38px 20px;
+    gap:28px;
+  }
+  footer>div{
+    gap:0;
+    border-top:1px solid rgba(255,255,255,.07);
+  }
+  footer>div a{
+    min-height:42px;
+    display:flex;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  footer p{margin:0}
+}
+@media(max-width:420px){
+  .header{padding:0 10px;gap:5px}
+  .header .brand-logo{width:88px;max-width:88px}
+  .language-switcher a{gap:0}
+  .language-switcher a span:last-child{display:none}
+  .language-switcher>span{font-size:8px}
+  .language-switcher .lang-flag{font-size:15px}
+  .hero h1{font-size:clamp(36px,10.4vw,40px)}
+  .section h2,.restaurant h2,.why h2,.process h2,.contact h2,.software-intro h2{
+    font-size:clamp(32px,9.2vw,38px);
+  }
+  .software-copy h3{font-size:clamp(29px,8.5vw,34px)}
+  .material-slide p{font-size:10px;letter-spacing:.5px}
+}
+@media(max-width:350px){
+  .header .brand-logo{width:76px;max-width:76px}
+  .customer-login{display:none}
+}
