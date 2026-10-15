@@ -18,5 +18,5 @@ for(let attempt=1;attempt<=18;attempt++) {
   } catch {console.log(`Live-Prüfung ${attempt}/18: Website derzeit nicht prüfbar.`);}
   if(attempt<18)await new Promise(resolve=>setTimeout(resolve,10000));
 }
-console.error('::error::Der Deployment-Auftrag wurde ausgeführt, aber die aktuelle Version auf jlsolutions.info konnte nicht bestätigt werden. Prüfe den Cloudflare-Build, die Projektzuordnung und eventuelle Zugriffssperren.');
+console.error('::error::Die aktuelle Version auf jlsolutions.info konnte nicht bestätigt werden. Prüfe den nativen Cloudflare Workers Build oder die GitHub-Veröffentlichung, die Projektzuordnung und eventuelle Zugriffssperren.');
 process.exit(1);

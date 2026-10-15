@@ -12,7 +12,15 @@ nach einem Merge auf `main`. Er kann außerdem in Actions manuell gestartet werd
 Workers Builds kann denselben Branch nativ bauen; `wrangler deploy` führt die
 Paketierung aus der Build-Konfiguration automatisch aus.
 
-### Empfohlen: Worker-Deploy-Hook
+### Native GitHub-Verbindung (ohne zusätzliche Actions-Secrets)
+
+Wenn der Worker in Cloudflare mit diesem Repository und dem Produktionsbranch
+`main` verbunden ist und Builds aktiviert sind, veröffentlicht Workers Builds
+bei einem Push auf `main`. Der GitHub-Workflow prüft dann die Live-Version,
+ohne zusätzliche Cloudflare-Zugangsdaten in GitHub zu benötigen. Ein erneutes
+Verbinden veröffentlicht nicht zwingend rückwirkend bereits vorhandene Commits.
+
+### Optional: Worker-Deploy-Hook
 
 1. Cloudflare → Workers & Pages → jl-solutions-website → Settings → Builds.
 2. Unter Deploy Hooks auf Add klicken.

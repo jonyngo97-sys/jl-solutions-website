@@ -44,7 +44,21 @@ jobs:
         with:
           name: website-dist
           path: dist
+      - name: Select publishing route
+        id: publishing
+        env:
+          CLOUDFLARE_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { appendFileSync } from 'node:fs';
+          const configured = Boolean(process.env.CLOUDFLARE_DEPLOY_HOOK || (process.env.CLOUDFLARE_API_TOKEN && process.env.CLOUDFLARE_ACCOUNT_ID));
+          appendFileSync(process.env.GITHUB_OUTPUT, 'configured=' + configured + '\n');
+          console.log(configured ? 'Publishing through GitHub credentials.' : 'Waiting for the connected native Cloudflare Workers Build; separate GitHub credentials are not required.');
+          NODE
       - name: Deploy existing Cloudflare website
+        if: steps.publishing.outputs.configured == 'true'
         env:
           CLOUDFLARE_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_DEPLOY_HOOK }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
