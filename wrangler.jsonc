@@ -1,0 +1,12 @@
+{
+  "name": "jl-solutions-website",
+  "compatibility_date": "2026-10-15",
+  "build": {
+    "command": "node scripts/prepare-deploy.mjs"
+  },
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}

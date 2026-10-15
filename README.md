@@ -1,49 +1,41 @@
 # JL Laser & Cut Solutions Website
 
-Premium company website for JL Laser & Cut Solutions, Berlin.
+Statische Unternehmenswebsite mit Website-Chat. Die Produktion läuft im bestehenden
+Cloudflare Worker `jl-solutions-website`. `wrangler.jsonc` benennt diesen Worker
+und veröffentlicht ausschließlich die mit `node scripts/prepare-deploy.mjs`
+erzeugten Dateien aus `dist/`. Die vorhandenen Domainzuordnungen bleiben bestehen.
 
-## Structure
-- `index.html` – homepage and content
-- `styles.css` – responsive black/gold design
-- `script.js` – mobile navigation and scroll animations
+## Veröffentlichung über GitHub
 
-## Deployment
-This repository is intentionally static and can be deployed directly with Cloudflare Pages.
+Der Workflow `Validate and deploy website` prüft Pull Requests und veröffentlicht
+nach einem Merge auf `main`. Er kann außerdem in Actions manuell gestartet werden.
+Workers Builds kann denselben Branch nativ bauen; `wrangler deploy` führt die
+Paketierung aus der Build-Konfiguration automatisch aus.
 
-Recommended Cloudflare Pages settings:
-- Framework preset: None
-- Build command: leave empty
-- Build output directory: `/`
+### Empfohlen: Worker-Deploy-Hook
 
-After the deployment is live, connect the custom domain `jlsolutions.info` in Cloudflare.
+1. Cloudflare → Workers & Pages → jl-solutions-website → Settings → Builds.
+2. Unter Deploy Hooks auf Add klicken.
+3. Name `github-deploy`, Branch `main`, anschließend Create.
+4. Die erzeugte URL ausschließlich in GitHub unter Settings → Secrets and
+   variables → Actions als Repository-Secret `CLOUDFLARE_DEPLOY_HOOK` speichern.
 
-## Deployment über GitHub Actions
+Ein Worker-Hook hat den Pfad
+`/client/v4/workers/builds/deploy_hooks/<HOOK-ID>`.
+Der Workflow unterstützt außerdem offizielle Pages-Hook-URLs. Die vollständige
+Hook-URL ist ein Zugangsschlüssel und gehört nicht in Commits, Issues oder Chats.
 
-Der Workflow `Validate and deploy website` prüft Pull Requests, erstellt ein
-öffentliches Website-Paket und veröffentlicht nach einem Merge auf `main`.
-Alternativ kann er über Actions → Run workflow gestartet werden.
+### Alternative: Worker-API-Zugang
 
-In diesem Repository muss eine der folgenden Varianten unter Settings → Secrets
-and variables → Actions hinterlegt sein:
+Statt des Hooks können `CLOUDFLARE_API_TOKEN` mit Worker-Deployment-Berechtigung
+und `CLOUDFLARE_ACCOUNT_ID` als GitHub-Repository-Secrets hinterlegt werden.
+Damit veröffentlicht Wrangler den explizit konfigurierten Worker.
+Cloudflare-Build-Variablen sind keine GitHub-Actions-Secrets.
 
-- `CLOUDFLARE_DEPLOY_HOOK`: bestehender Cloudflare-Pages-Deploy-Hook für den
-  Produktionsbranch dieses Website-Projekts.
-- Oder `CLOUDFLARE_API_TOKEN` mit Pages-Schreibberechtigung für den vorhandenen
-  Account plus `CLOUDFLARE_ACCOUNT_ID`.
+## Prüfung
 
-Der API-Weg sucht ausschließlich ein bereits vorhandenes Pages-Projekt mit der
-Domain `jlsolutions.info` oder `www.jlsolutions.info`. Bei mehreren Treffern kann
-`CLOUDFLARE_PAGES_PROJECT` als Repository-Variable den Namen eingrenzen. Es wird
-kein Projekt angelegt und keine Domain oder DNS-Einstellung verändert.
-
-GitHub benötigt diese technische Berechtigung auch dann, wenn man den
-Cloudflare-Browser-Login vermeiden möchte. Zugangsdaten niemals in Commits,
-Issues oder Chatnachrichten schreiben. Der Workflow gibt fehlende Secret-Namen,
-aber keine Werte aus.
-
-Nur HTML, CSS, JavaScript, Bilder und Schriftdateien der öffentlichen Website
-werden nach `dist/` kopiert. Git-Metadaten, Workflows und Hilfsskripte werden nicht
-veröffentlicht. Nach dem Deployment prüft der Workflow die Chat-Einbindung und
-den exakten Inhalt der ausgelieferten `chat.js`. Eine fehlgeschlagene Prüfung
-bedeutet, dass die Live-Version noch nicht bestätigt ist.
-
+Nur öffentliche HTML-, CSS-, JavaScript-, Bild- und Schriftdateien werden
+paketiert. Git-Metadaten, Workflows und Hilfsskripte werden nicht veröffentlicht.
+Nach der Veröffentlichung prüft GitHub die Einbindung auf jlsolutions.info und den
+exakten Inhalt der ausgelieferten chat.js. Bis zu einer erfolgreichen Live-Prüfung
+wird das Deployment nicht als bestätigt gemeldet.
