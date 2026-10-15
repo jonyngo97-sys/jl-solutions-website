@@ -47,3 +47,11 @@ paketiert. Git-Metadaten, Workflows und Hilfsskripte werden nicht veröffentlich
 Nach der Veröffentlichung prüft GitHub die Einbindung auf jlsolutions.info und den
 exakten Inhalt der ausgelieferten chat.js. Bis zu einer erfolgreichen Live-Prüfung
 wird das Deployment nicht als bestätigt gemeldet.
+
+## Repository-Zuordnung prüfen
+
+Für den Worker `jl-solutions-website` muss das Git-Repository
+`jonyngo97-sys/jl-solutions-website` mit Produktionsbranch `main` gewählt sein.
+`jonyngo97-sys/jl-smart-menu` gehört ausschließlich zum separaten SaaS-Worker.
+Fehlt die Website in der Auswahl, muss sie zuerst im Repository-Zugriff der
+GitHub-App „Cloudflare Workers and Pages“ freigegeben werden.
