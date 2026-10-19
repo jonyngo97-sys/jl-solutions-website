@@ -395,4 +395,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
  .digital-start,.software-faq{padding-top:52px}.software-faq summary{font-size:14px;line-height:1.7}
  .hero-copy .text-link{display:inline-flex;align-items:center;min-height:44px}
 }
+footer{grid-template-columns:minmax(150px,.6fr) minmax(0,1.8fr);gap:26px 50px}footer>div{flex-wrap:wrap;min-width:0}footer>p{grid-column:1/-1;margin:0}
+@media(max-width:1000px){footer{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}}
