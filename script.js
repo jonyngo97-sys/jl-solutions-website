@@ -1,7 +1,8 @@
 document.getElementById('year').textContent=new Date().getFullYear();
 const toggle=document.querySelector('.nav-toggle');
 const nav=document.querySelector('.nav');
-const setMenu=open=>{nav?.classList.toggle('open',open);toggle?.setAttribute('aria-expanded',String(open));toggle?.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen')};
+const menuLabels=({de:['Menü öffnen','Menü schließen'],en:['Open menu','Close menu'],vi:['Mở menu','Đóng menu']})[document.documentElement.lang]||['Open menu','Close menu'];
+const setMenu=open=>{nav?.classList.toggle('open',open);toggle?.setAttribute('aria-expanded',String(open));toggle?.setAttribute('aria-label',menuLabels[open?1:0])};
 toggle?.setAttribute('aria-expanded','false');
 toggle?.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
 document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
