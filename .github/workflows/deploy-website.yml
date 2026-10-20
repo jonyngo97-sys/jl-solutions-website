@@ -20,6 +20,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Check service-aware enquiry flow
+        run: node --test test/*.test.mjs
       - name: Prepare public website and check JavaScript
         run: node scripts/prepare-deploy.mjs
       - name: Validate Worker assets configuration

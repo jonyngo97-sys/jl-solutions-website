@@ -3,11 +3,19 @@ const toggle=document.querySelector('.nav-toggle');
 const nav=document.querySelector('.nav');
 const menuLabels=({de:['Menü öffnen','Menü schließen'],en:['Open menu','Close menu'],vi:['Mở menu','Đóng menu']})[document.documentElement.lang]||['Open menu','Close menu'];
 const setMenu=open=>{nav?.classList.toggle('open',open);toggle?.setAttribute('aria-expanded',String(open));toggle?.setAttribute('aria-label',menuLabels[open?1:0])};
-toggle?.setAttribute('aria-expanded','false');
+setMenu(false);
 toggle?.addEventListener('click',()=>setMenu(!nav.classList.contains('open')));
 document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 document.addEventListener('keydown',event=>{if(event.key==='Escape')setMenu(false)});
 window.addEventListener('resize',()=>{if(window.innerWidth>1000)setMenu(false)});
+// Native contact links remain usable if the chat has not loaded.
+document.addEventListener('click',event=>{
+  const link=event.target.closest('a[data-enquiry]');
+  if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  if(!document.getElementById('jl-contact-chat'))return;
+  event.preventDefault();
+  document.dispatchEvent(new CustomEvent('jl:enquiry',{detail:{service:link.dataset.enquiry}}));
+});
 const revealTargets=document.querySelectorAll('.cards article,.restaurant>div,.why>div,.steps article,.contact>div');
 revealTargets.forEach(el=>el.classList.add('reveal'));
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
