@@ -502,3 +502,14 @@ footer{grid-template-columns:minmax(150px,.6fr) minmax(0,1.8fr);gap:26px 50px}fo
 
 .product-intro-action{margin:0 0 28px}.feature-grid h3{font:600 23px/1.1 "Cormorant Garamond",serif;margin:8px 0;color:#f1e4c8}@media(max-width:620px){.product-intro-action .button{width:100%;text-align:center}.feature-grid h3{font-size:25px}}
 .digital-start li h3{font:600 23px "Cormorant Garamond",serif;margin:10px 0}
+
+/* Real product screenshots: show the full interface without cropping controls. */
+.offer-system{background:#f5f4ef;display:grid;place-items:center}
+.offer-system img{height:auto;max-height:100%;object-fit:contain}
+.product-photo.product-system{background:#f5f4ef;display:grid;align-content:center;padding-bottom:45px}
+.product-photo.product-system img{position:static;height:auto;object-fit:contain;object-position:center}
+.product-system figcaption{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;font-size:10px;line-height:1.6;letter-spacing:.06em;color:#333;background:#eeece6;border-top:1px solid #dedbd3}
+.offer-growth-system{background:#101116}
+.workspace-system-image{display:block;width:100%;height:auto}
+.workspace-system{overflow:hidden}
+
