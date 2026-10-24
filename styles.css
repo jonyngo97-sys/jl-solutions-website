@@ -634,9 +634,10 @@ footer{grid-template-columns:minmax(150px,.6fr) minmax(0,1.8fr);gap:26px 50px}fo
 @media(prefers-reduced-motion:reduce){.jl-direction-icon{transition:none}.structured-home :is(a,button):hover>.jl-direction-icon{transform:none}}
 
 /* Phone and tablet refinement for the interactive homepage. */
+@media(max-width:620px){html,body{overflow-x:clip}}
 @media(max-width:760px){
  .goal-tabs button{font-size:12px;min-height:125px}
- .goal-tabs button>.goal-symbol{display:flex}
+ .goal-tabs button>span.goal-symbol{display:flex}
  .goal-tabs button{display:grid;grid-template-columns:minmax(0,1fr) 26px;align-content:start}
  .goal-tabs button>span:first-child{grid-column:1;grid-row:1}
  .goal-tabs button>.goal-symbol{grid-column:2;grid-row:1;justify-content:end}
@@ -670,7 +671,7 @@ footer{grid-template-columns:minmax(150px,.6fr) minmax(0,1.8fr);gap:26px 50px}fo
  .goal-tabs button:last-child{border-bottom:0}
  .goal-tabs button>span:first-child{grid-column:1;grid-row:1}
  .goal-tabs button b{grid-column:2;grid-row:1;line-height:1.55}
- .goal-tabs button>.goal-symbol{display:flex;grid-column:3;grid-row:1}
+ .goal-tabs button>span.goal-symbol{display:flex;grid-column:3;grid-row:1}
  .goal-tabs button[aria-selected="true"]{box-shadow:inset 3px 0 var(--gold)}
  .jl-service-icon{width:25px;height:25px}
  .solution-panel{padding:25px 16px;gap:27px}
