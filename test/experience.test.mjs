@@ -7,13 +7,14 @@ const source=await readFile(new URL('../experience.js',import.meta.url),'utf8');
 function control(text=''){
   return {textContent:text,attrs:{},dataset:{},listeners:{},setAttribute(k,v){this.attrs[k]=v;},getAttribute(k){return this.attrs[k];},addEventListener(k,fn){this.listeners[k]=fn;},focus(){this.focused=true;}};
 }
-function fixture(){
+function fixture({phone=false}={}){
   const panels=new Map();
   const sets=Array.from({length:3},(_,set)=>{
     const tabs=Array.from({length:3},(_,i)=>{
       const tab=control();tab.attrs['aria-controls']=set+'-'+i;panels.set(set+'-'+i,{});return tab;
     });
-    return {tabs,dataset:{},querySelector(){return {querySelectorAll:()=>tabs};}};
+    const list=control();list.querySelectorAll=()=>tabs;list.classList={contains:()=>set===0};
+    return {tabs,list,dataset:{},querySelector(){return list;}};
   });
   const image={},label={},materials=['wood','slate','metal'].map((name,i)=>{
     const button=control(['Holz','Schiefer','Metall'][i]);button.dataset.material=name;return button;
@@ -23,8 +24,10 @@ function fixture(){
     querySelector:s=>s==='[data-material-image]'?image:label,
     getElementById:id=>panels.get(id)
   };
-  new vm.Script(source).runInNewContext({document});
-  return {sets,panels,image,label,materials};
+  const queries=[];
+  const window={matchMedia(query){const media={query,matches:phone,addEventListener(event,fn){this.changed=fn;}};queries.push(media);return media;}};
+  new vm.Script(source).runInNewContext({document,window});
+  return {sets,panels,image,label,materials,queries};
 }
 
 test('goal switching shows only the requested solution and preserves nested demo selection',()=>{
@@ -56,6 +59,16 @@ test('material choice updates the actual sample, caption and pressed state',()=>
   assert.equal(f.image.alt,'Schiefer');assert.equal(f.label.textContent,'Schiefer');
   assert.equal(f.materials[0].attrs['aria-pressed'],'false');
   assert.equal(f.materials[1].attrs['aria-pressed'],'true');
+});
+test('stacked phone tabs expose vertical orientation and respond to up/down keys',()=>{
+  const f=fixture({phone:true}),tabs=f.sets[0].tabs;
+  assert.equal(f.sets[0].list.attrs['aria-orientation'],'vertical');
+  tabs[0].listeners.keydown({key:'ArrowDown',preventDefault(){}});
+  assert.equal(f.panels.get('0-1').hidden,false);assert.equal(tabs[1].focused,true);
+  tabs[1].listeners.keydown({key:'ArrowUp',preventDefault(){}});
+  assert.equal(f.panels.get('0-0').hidden,false);
+  f.queries[0].matches=false;f.queries[0].changed();
+  assert.equal(f.sets[0].list.attrs['aria-orientation'],'horizontal');
 });
 test('all languages include working product/contact fallbacks and label the simulated workflow',async()=>{
   for(const prefix of ['','en/','vi/']){

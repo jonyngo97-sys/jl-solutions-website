@@ -632,3 +632,97 @@ footer{grid-template-columns:minmax(150px,.6fr) minmax(0,1.8fr);gap:26px 50px}fo
 .preview-label>span:last-child{display:inline-flex;align-items:center;gap:4px}
 .sample-brand>.jl-direction-icon{margin-left:auto;width:25px;height:25px;color:#8e805f}
 @media(prefers-reduced-motion:reduce){.jl-direction-icon{transition:none}.structured-home :is(a,button):hover>.jl-direction-icon{transform:none}}
+
+/* Phone and tablet refinement for the interactive homepage. */
+@media(max-width:760px){
+ .goal-tabs button{font-size:12px;min-height:125px}
+ .goal-tabs button>.goal-symbol{display:flex}
+ .goal-tabs button{display:grid;grid-template-columns:minmax(0,1fr) 26px;align-content:start}
+ .goal-tabs button>span:first-child{grid-column:1;grid-row:1}
+ .goal-tabs button>.goal-symbol{grid-column:2;grid-row:1;justify-content:end}
+ .goal-tabs button b{grid-column:1/-1;grid-row:2;overflow-wrap:anywhere}
+ .solution-panel,.solution-story,.solution-preview,.sample-tabs>[role="tabpanel"]{min-width:0}
+ .solution-story h3,.sample-tabs h4,.sample-note{overflow-wrap:anywhere;hyphens:auto}
+}
+@media(max-width:620px){
+ .header{height:70px;padding:0 12px;gap:6px}
+ .header .brand{min-width:0;flex:1 1 auto}
+ .header .brand-logo{width:88px;max-width:100%;height:54px}
+ .header .nav-toggle{width:44px;height:44px;flex:0 0 44px;border-radius:8px}
+ .header .customer-login{display:inline-flex;width:44px;min-width:44px;height:44px;flex:0 0 44px;padding:0;margin:0;border-radius:8px}
+ .header .customer-login svg{width:18px;height:18px}
+ .header .language-switcher{flex:0 0 auto;margin:0;gap:0}
+ .header .language-switcher>a{display:inline-flex;justify-content:center;min-width:30px;min-height:44px;padding:0 3px;gap:0;font-size:10px}
+ .header .language-switcher>a>span:last-child{display:inline}
+ .header .language-switcher .lang-flag,.header .language-switcher>span{display:none}
+ .header .nav{top:70px}
+ .structured-home .hero{padding:34px 20px 38px;gap:24px}
+ .structured-home .hero h1{font-size:clamp(40px,10.6vw,58px);letter-spacing:-1px;line-height:1.04}
+ .structured-home .hero-copy>p:not(.eyebrow){font-size:15px;line-height:1.75;margin:22px 0}
+ .structured-home .hero .actions{width:100%;gap:10px}
+ .structured-home .hero .actions>a{width:100%;justify-content:center}
+ .hero-signature{gap:10px 14px;font-size:10px;line-height:1.7}
+ .solution-explorer{padding:40px 16px 24px;scroll-margin-top:82px}
+ .solution-explorer h2,.home-journey h2{font-size:clamp(34px,9vw,43px);overflow-wrap:anywhere;hyphens:auto}
+ .solution-explorer .section-head>p{font-size:14px;margin-top:0}
+ .goal-tabs{grid-template-columns:minmax(0,1fr)}
+ .goal-tabs button{grid-template-columns:22px minmax(0,1fr) 26px;align-items:center;align-content:center;min-height:68px;gap:12px;padding:13px 16px;font-size:13px;border-right:0;border-bottom:1px solid var(--line)}
+ .goal-tabs button:last-child{border-bottom:0}
+ .goal-tabs button>span:first-child{grid-column:1;grid-row:1}
+ .goal-tabs button b{grid-column:2;grid-row:1;line-height:1.55}
+ .goal-tabs button>.goal-symbol{display:flex;grid-column:3;grid-row:1}
+ .goal-tabs button[aria-selected="true"]{box-shadow:inset 3px 0 var(--gold)}
+ .jl-service-icon{width:25px;height:25px}
+ .solution-panel{padding:25px 16px;gap:27px}
+ .solution-story h3{font-size:clamp(31px,8.6vw,38px);line-height:1.1;margin-bottom:18px}
+ .solution-story>p:not(.eyebrow){font-size:14px;line-height:1.8}
+ .solution-story ul{font-size:13px}
+ .solution-story li{gap:10px;padding:6px 0}
+ .solution-actions{display:grid;grid-template-columns:minmax(0,1fr);gap:6px}
+ .solution-actions>a{width:100%;min-height:48px;justify-content:center}
+ .solution-actions .text-link{font-size:11px;text-align:center}
+ .structured-home .button>.jl-direction-icon{width:25px;height:25px}
+ .preview-label{font-size:9px;letter-spacing:1px;line-height:1.7}
+ .preview-label>span:last-child{font-size:11px}
+ .material-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .material-choices button{min-width:0;min-height:48px;padding:8px 6px;font-size:12px;justify-content:center;flex-wrap:wrap;gap:6px;line-height:1.5}
+ .material-choices .swatch{flex:0 0 16px}
+ .sample-disclaimer{font-size:11px!important;line-height:1.75!important}
+ .guest-demo,.growth-demo{padding:16px}
+ .sample-brand{gap:10px}
+ .sample-brand>b{min-width:0;overflow-wrap:anywhere}
+ .sample-tabs [role="tab"]{font-size:12px;min-height:46px;overflow-wrap:anywhere}
+ .sample-tabs h4{font-size:29px;line-height:1.15}
+ .sample-tabs p{font-size:13px}
+ .sample-note{font-size:13px;padding:16px}
+ .explorer-footer{padding:19px 4px;gap:5px;font-size:13px}
+ .explorer-footer .text-link{font-size:11px}
+ .home-journey{padding:38px 20px;gap:26px}
+ .home-journey li p{font-size:13px;line-height:1.75}
+ .home-journey li{gap:18px}
+ .structured-home footer,.product-page footer{padding-bottom:max(90px,env(safe-area-inset-bottom))}
+ .structured-home :is(a,button),.product-page :is(a,button){touch-action:manipulation}
+}
+@media(max-width:420px){
+ .preview-label>span:last-child{width:100%;margin-left:14px}
+ .sample-tabs>[role="tablist"]{flex-direction:column;gap:6px;padding:15px 0}
+ .sample-tabs [role="tab"]{flex:auto;width:100%;text-align:left;padding:10px 12px}
+ .sample-tabs>[role="tabpanel"]{min-height:0;padding:10px 0 15px}
+ .guest-demo .sample-tabs>[role="tabpanel"]{min-height:190px}
+ .sample-menu p{gap:10px;padding:12px 0}
+ .structured-home .hero-art{border-bottom-right-radius:44px}
+}
+@media(max-width:350px){
+ .header{padding:0 10px;gap:5px}
+ .header .brand-logo{width:72px}
+ .header .language-switcher>a{min-width:28px}
+ .solution-panel{padding:22px 13px}
+ .goal-tabs button{padding:12px 13px;gap:10px}
+ .solution-story h3{font-size:30px}
+}
+@media(hover:none){
+ .structured-home :is(a,button):hover>.jl-direction-icon{transform:none}
+ .structured-home .button:hover{transform:none;box-shadow:none}
+ .goal-tabs button:hover{color:#a8a6a1}
+ .goal-tabs button[aria-selected="true"]:hover{color:var(--gold2)}
+}

@@ -5,6 +5,12 @@
     const tabs = [...list.querySelectorAll('[role="tab"]')];
     const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
     if (!tabs.length || panels.some(panel => !panel)) return;
+    // Match the keyboard semantics to the stacked phone controls.
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      const query = window.matchMedia(list.classList.contains('goal-tabs') ? '(max-width:620px)' : '(max-width:420px)');
+      const orient = () => list.setAttribute('aria-orientation', query.matches ? 'vertical' : 'horizontal');
+      orient(); query.addEventListener('change', orient);
+    }
     function select(index, focus = false) {
       tabs.forEach((tab, i) => {
         tab.setAttribute('aria-selected', String(i === index));
@@ -16,7 +22,7 @@
     tabs.forEach((tab, index) => {
       tab.addEventListener('click', () => select(index));
       tab.addEventListener('keydown', event => {
-        const next = { ArrowRight:(index+1)%tabs.length, ArrowLeft:(index-1+tabs.length)%tabs.length, Home:0, End:tabs.length-1 }[event.key];
+        const next = { ArrowRight:(index+1)%tabs.length, ArrowDown:(index+1)%tabs.length, ArrowLeft:(index-1+tabs.length)%tabs.length, ArrowUp:(index-1+tabs.length)%tabs.length, Home:0, End:tabs.length-1 }[event.key];
         if (next === undefined) return;
         event.preventDefault(); select(next, true);
       });
