@@ -7,7 +7,7 @@ const expectedPages=await Promise.all(pages.map(async file=>{
   const html=await readFile('dist/'+file,'utf8');
   return {file,path:file.endsWith('index.html')?file.slice(0,-10):file,title:html.match(/<title>(.*?)<\/title>/)?.[0],canonical:html.match(/<link rel="canonical"[^>]+>/)?.[0]};
 }));
-const expectedAssets=await Promise.all(['chat.js','script.js','styles.css'].map(async file=>({file,hash:hash(await readFile('dist/'+file,'utf8'))})));
+const expectedAssets=await Promise.all(['chat.js','script.js','experience.js','styles.css'].map(async file=>({file,hash:hash(await readFile('dist/'+file,'utf8'))})));
 async function load(path){return fetch(`https://jlsolutions.info/${path}?release=${release}`,{headers:{'Cache-Control':'no-cache'},signal:AbortSignal.timeout(15000)});}
 async function verify(){
   const results=await Promise.all([
