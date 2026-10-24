@@ -615,3 +615,20 @@ footer{grid-template-columns:minmax(150px,.6fr) minmax(0,1.8fr);gap:26px 50px}fo
 }
 @media(prefers-reduced-motion:reduce){.structured-home .hero-art,.solution-panel:not([hidden]){animation:none}.structured-home .hero-art{transform:none}}
 
+
+/* Consistent line icons replace font-dependent arrow characters. */
+.jl-direction-icon,.jl-service-icon,.jl-tap-icon{display:inline-block;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+.jl-direction-icon{width:28px;height:28px;transition:transform .25s ease}
+.jl-direction-down{rotate:90deg}
+.jl-direction-icon .icon-orbit{opacity:.45;stroke-width:1}
+.structured-home .text-link{gap:12px}
+.structured-home .text-link .jl-direction-icon{width:25px;height:25px}
+.structured-home :is(a,button):hover>.jl-direction-icon{transform:translateX(3px)}
+.structured-home a:hover>.jl-direction-down{transform:translateX(3px)}
+.jl-service-icon{width:27px;height:27px;stroke-width:1.2}
+.goal-symbol{display:flex;align-items:center;color:#a4987d;transition:color .2s}
+.goal-tabs button[aria-selected="true"] .goal-symbol{color:var(--gold2)}
+.jl-tap-icon{width:17px;height:17px;margin-left:4px;stroke-width:1.25}
+.preview-label>span:last-child{display:inline-flex;align-items:center;gap:4px}
+.sample-brand>.jl-direction-icon{margin-left:auto;width:25px;height:25px;color:#8e805f}
+@media(prefers-reduced-motion:reduce){.jl-direction-icon{transition:none}.structured-home :is(a,button):hover>.jl-direction-icon{transform:none}}
