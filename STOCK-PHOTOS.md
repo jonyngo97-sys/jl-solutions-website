@@ -2,6 +2,7 @@
 
 All photographs are illustrative, not JL Solutions reference projects. Pexels license: https://www.pexels.com/license/ . Downloaded during the deployment build and served locally; no external image requests from visitors. No generated images added.
 
+- studio: https://www.pexels.com/photo/crop-artisan-polishing-wooden-board-5711885/
 - laser: https://www.pexels.com/photo/close-up-of-an-engraving-machine-17260646/
 - events: https://www.pexels.com/photo/table-decorated-with-flowers-16120245/
 - photo-film: https://www.pexels.com/photo/a-photographer-taking-pictures-10978726/

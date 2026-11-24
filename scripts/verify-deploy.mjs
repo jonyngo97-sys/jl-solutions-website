@@ -12,7 +12,7 @@ async function load(path){return fetch(`https://jlsolutions.info/${path}?release
 async function verify(){
   const results=await Promise.all([
     ...expectedPages.map(async page=>{const response=await load(page.path);if(!response.ok)return false;const html=await response.text();return Boolean(page.title&&page.canonical&&html.includes(page.title)&&html.includes(page.canonical)&&html.includes('src="/chat.js"')&&html.includes('data-enquiry='));}),
-    ...['laser','events','photo-film','digital','wood','slate','bamboo','metal','cork','qr'].map(async name=>{const response=await load('assets/stock-'+name+'.jpg');if(!response.ok)return false;const bytes=new Uint8Array(await response.arrayBuffer());return bytes.length>1000&&bytes[0]===255&&bytes[1]===216;}),
+    ...['studio','laser','events','photo-film','digital','wood','slate','bamboo','metal','cork','qr'].map(async name=>{const response=await load('assets/stock-'+name+'.jpg');if(!response.ok)return false;const bytes=new Uint8Array(await response.arrayBuffer());return bytes.length>1000&&bytes[0]===255&&bytes[1]===216;}),
     ...expectedAssets.map(async asset=>{const response=await load(asset.file);return response.ok&&hash(await response.text())===asset.hash;})
   ]);
   return results.every(Boolean);
