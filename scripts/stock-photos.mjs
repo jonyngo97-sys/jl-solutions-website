@@ -1,9 +1,9 @@
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 export const photos={
-  "studio": [
-    5711885,
-    "crop-artisan-polishing-wooden-board"
+  "berlin": [
+    28711733,
+    "berlin-skyline-with-tv-tower-at-sunset"
   ],
   "laser": [
     17260646,
