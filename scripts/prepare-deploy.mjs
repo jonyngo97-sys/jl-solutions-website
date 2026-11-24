@@ -1,6 +1,7 @@
 import { cp, mkdir, readdir, rm, access, readFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { prepareStockPhotos } from './stock-photos.mjs';
 
 const allowed = new Set(['.html','.css','.js','.png','.jpg','.jpeg','.webp','.svg','.ico','.avif','.woff','.woff2']);
 await rm('dist',{recursive:true,force:true});
@@ -15,6 +16,7 @@ async function copyPublic(source,target) {
   }
 }
 await copyPublic('.','dist');
+await prepareStockPhotos();
 const pages=['','en/','vi/'].flatMap(prefix=>['index.html','gravur.html','smart-qr.html','growth-ai.html','events.html','photo-film.html','digital.html'].map(file=>prefix+file));
 for(const file of [...pages,'chat.js','script.js','experience.js','styles.css','umbrella.css','datenschutz.html']) await access(join('dist',file));
 for(const page of pages) {
