@@ -1,6 +1,10 @@
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 export const photos={
+  "studio": [
+    5711885,
+    "crop-artisan-polishing-wooden-board"
+  ],
   "laser": [
     17260646,
     "close-up-of-an-engraving-machine"
