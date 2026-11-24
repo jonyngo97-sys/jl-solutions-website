@@ -55,7 +55,7 @@ test('keyboard navigation wraps, supports Home/End and focuses the selected tab'
 });
 test('material choice updates the actual sample, caption and pressed state',()=>{
   const f=fixture();f.materials[1].listeners.click();
-  assert.equal(f.image.src,'/assets/material-slate.webp');
+  assert.equal(f.image.src,'/assets/stock-slate.jpg');
   assert.equal(f.image.alt,'Schiefer');assert.equal(f.label.textContent,'Schiefer');
   assert.equal(f.materials[0].attrs['aria-pressed'],'false');
   assert.equal(f.materials[1].attrs['aria-pressed'],'true');

@@ -35,7 +35,7 @@
   choices.forEach(button => button.addEventListener('click', () => {
     const material = button.dataset.material;
     if (!['wood','slate','metal'].includes(material) || !materialImage) return;
-    materialImage.src = '/assets/material-' + material + '.webp';
+    materialImage.src = '/assets/stock-' + material + '.jpg';
     materialImage.alt = button.textContent.trim();
     materialLabel.textContent = button.textContent.trim();
     choices.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
