@@ -209,6 +209,8 @@
 @media (min-width: 1001px) {
   .header .nav,
   .editorial-home .header .nav {
+    flex: 0 0 auto;
+    margin-inline: auto;
     align-items: center;
     gap: clamp(1px, .35vw, 7px);
     padding: 4px;
