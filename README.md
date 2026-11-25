@@ -1,4 +1,4 @@
-# JL Laser & Cut Solutions Website
+# JL Solutions Website
 
 Statische Unternehmenswebsite mit Website-Chat. Die Produktion läuft im bestehenden
 Cloudflare Worker `jl-solutions-website`. `wrangler.jsonc` benennt diesen Worker
