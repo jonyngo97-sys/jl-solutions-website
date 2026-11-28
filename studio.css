@@ -8,7 +8,7 @@
   --ci-bg:#090a0c;--ci-gold:#c69a45;--ci-gold-soft:#d8b46e;--ci-text:#f3f0e9;--ci-body:#c0bdb5;
   --ci-line:rgba(198,154,69,.24);--ci-line-strong:rgba(198,154,69,.5);
   --ed-gold:var(--ci-gold-soft);--ed-muted:var(--ci-body);
-  --gutter:clamp(20px,6vw,104px);--section:clamp(72px,10vw,152px);
+  --gutter:clamp(20px,6vw,104px);--section:clamp(96px,13vw,216px);
   font-size:16px;color:var(--ci-text);
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
@@ -40,9 +40,9 @@
   min-height:calc(100svh - 84px);max-width:1680px;margin:0 auto;
   padding:clamp(48px,7vw,104px) var(--gutter) 0;overflow:visible}
 .editorial-home .ed-hero-copy{max-width:720px;grid-column:1;grid-row:1}
-.editorial-home .ed-hero h1{font-weight:500;font-size:clamp(52px,6.6vw,112px);line-height:.98;letter-spacing:-.025em}
+.editorial-home .ed-hero h1{font-weight:500;font-size:clamp(54px,7vw,124px);line-height:.96;letter-spacing:-.028em}
 .editorial-home .ed-hero h1 em{font-style:italic;color:var(--ci-gold-soft);margin-top:.08em;font-weight:500}
-.editorial-home .ed-intro{font-size:clamp(17px,1.25vw,20px);line-height:1.7;color:var(--ci-body);max-width:34em;margin:32px 0 40px}
+.editorial-home .ed-intro{font-size:clamp(17px,1.35vw,21px);line-height:1.65;color:var(--ci-body);max-width:28em;margin:clamp(28px,3vw,40px) 0 clamp(32px,3.6vw,48px)}
 .editorial-home .ed-actions{gap:28px}
 .editorial-home .ed-actions .button{border-radius:2px;min-height:54px;gap:16px}
 .editorial-home .ed-secondary{color:var(--ci-text);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
@@ -150,7 +150,7 @@
 @media(max-width:760px){
   .editorial-home .ed-hero{grid-template-columns:1fr;grid-template-rows:auto;padding-top:40px}
   .editorial-home .ed-hero-copy,.editorial-home .ed-hero-visual,.editorial-home .ed-hero-index{grid-column:1;grid-row:auto}
-  .editorial-home .ed-hero h1{font-size:clamp(46px,12.5vw,64px)}
+  .editorial-home .ed-hero h1{font-size:clamp(48px,13vw,68px)}
   .editorial-home .ed-intro{font-size:17px;margin:22px 0 30px}
   .editorial-home .ed-actions{flex-direction:column;align-items:stretch;gap:22px}
   .editorial-home .ed-actions .button{justify-content:center}
@@ -195,3 +195,86 @@
 .editorial-home .material-choices button,.editorial-home .goal-tabs button{border-radius:2px}
 .editorial-home .ed-footer h3{letter-spacing:.18em;line-height:1.5}
 @media(max-width:620px){.editorial-home .ed-footer{column-gap:20px}.editorial-home .ed-footer h3{font-size:10.5px;letter-spacing:.14em}}
+
+/* ==========================================================================
+   POLISH (structure only): whitespace, large type, motion
+   The framed Berlin portrait hero stays as on live. This pass only refines
+   rhythm, typography and interaction on the homepage.
+   ========================================================================== */
+
+/* Whitespace rhythm & consistent widths ---------------------------------- */
+.editorial-home{--measure:27em;--section-tight:clamp(72px,9vw,152px)}
+.editorial-home .ed-services,.editorial-home .ed-demos,.editorial-home .home-journey,.editorial-home .page-faq,.editorial-home .contact{
+  max-width:1680px;margin-inline:auto}
+.editorial-home .eyebrow,.editorial-home .ed-kicker{margin-bottom:clamp(22px,2.4vw,34px)}
+
+/* Large Cormorant headings, fluid ---------------------------------------- */
+@media(min-width:761px){
+  .editorial-home .ed-section-head{grid-template-columns:minmax(0,8fr) minmax(0,4fr)}
+}
+.editorial-home .ed-section-head h2{font-size:clamp(44px,5.4vw,100px);line-height:.98;letter-spacing:-.025em}
+.editorial-home .ed-section-head{padding-bottom:clamp(56px,7vw,112px);align-items:end}
+.editorial-home .ed-section-head>p{font-size:clamp(17px,1.3vw,20px);max-width:20em;line-height:1.7}
+.editorial-home .ed-services{padding-top:var(--section);padding-bottom:clamp(24px,3vw,48px)}
+.editorial-home .ed-service{padding:clamp(72px,9vw,152px) 0;gap:clamp(40px,7vw,128px);align-items:center}
+.editorial-home .ed-service-num{font-size:clamp(48px,5vw,80px);margin-bottom:clamp(18px,2vw,28px)}
+.editorial-home .ed-service-body h3{font-size:clamp(46px,5.6vw,96px);line-height:.96;letter-spacing:-.02em}
+.editorial-home .ed-service-body>p:not(.ed-service-num){font-size:clamp(17px,1.3vw,20px);line-height:1.7;max-width:22em;margin:clamp(22px,2.4vw,34px) 0 clamp(22px,2.4vw,32px)}
+/* the three keywords become one quiet line instead of a ruled list */
+.editorial-home .ed-service-points{display:flex;flex-wrap:wrap;gap:8px 26px;border-top:0;max-width:none;margin:0 0 clamp(30px,3vw,44px)}
+.editorial-home .ed-service-points li{padding:0;border-bottom:0;gap:10px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#a9a59c}
+.editorial-home .ed-service-points li:before{width:5px;height:5px;background:var(--ci-gold);border:0;transform:rotate(45deg)}
+.editorial-home .ed-service-image img{aspect-ratio:4/3}
+.editorial-home .ed-demos{padding:var(--section) var(--gutter)}
+.editorial-home .ed-demos .section-head h2,.editorial-home .home-journey h2,.editorial-home .page-faq h2,.editorial-home .contact h2{
+  font-size:clamp(42px,5.6vw,96px);line-height:.98;letter-spacing:-.025em}
+.editorial-home .ed-demos .section-head{margin-bottom:clamp(40px,5vw,80px)}
+.editorial-home .ed-demos .section-head>p{max-width:24em;font-size:clamp(16px,1.2vw,19px)}
+.editorial-home .home-journey{padding:var(--section) var(--gutter);gap:clamp(40px,8vw,140px);align-items:start}
+.editorial-home .home-journey li{padding:clamp(24px,2.4vw,36px) 0}
+.editorial-home .home-journey li:first-child{padding-top:0}
+.editorial-home .home-journey li h3{font:500 clamp(24px,2vw,32px)/1.1 'Cormorant Garamond',Georgia,serif}
+.editorial-home .home-journey li p{font-size:16px}
+.editorial-home .home-journey li>span{font-size:clamp(34px,3vw,48px)}
+.editorial-home .page-faq{padding:var(--section-tight) var(--gutter);gap:clamp(40px,8vw,140px)}
+.editorial-home .page-faq summary{padding-block:clamp(22px,2vw,30px);font-size:clamp(17px,1.3vw,19px)}
+.editorial-home .contact{padding:var(--section) var(--gutter);gap:clamp(40px,7vw,128px);align-items:center}
+.editorial-home .contact>div:first-child>p:not(.eyebrow){font-size:clamp(17px,1.3vw,20px);max-width:24em;margin-block:clamp(24px,2.6vw,36px)}
+.editorial-home .contact-card{padding:clamp(32px,4vw,64px)}
+.editorial-home .contact-card h3{font-size:clamp(34px,3vw,48px)}
+.editorial-home .ed-footer{padding-top:clamp(64px,8vw,120px)}
+
+/* Interaction polish (hover works for everyone, the movement only without reduced-motion) */
+.editorial-home .button,.editorial-home .ed-whatsapp,.editorial-home .ed-hero-index a,.editorial-home .ed-service-image{
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,background-color .25s ease,border-color .25s ease,color .25s ease}
+.editorial-home .button:hover,.editorial-home .button:focus-visible{box-shadow:0 14px 36px -12px rgba(198,154,69,.65),0 0 0 1px rgba(216,180,110,.5)}
+.editorial-home .ed-whatsapp:hover{box-shadow:0 14px 36px -14px rgba(198,154,69,.6)}
+.editorial-home .ed-hero-index a:hover{background:linear-gradient(180deg,rgba(198,154,69,.08),transparent 70%)}
+.editorial-home .ed-service:hover .ed-service-image{box-shadow:0 36px 80px -34px rgba(198,154,69,.5),0 0 0 1px rgba(198,154,69,.45)}
+.editorial-home .text-link .ed-arrow,.editorial-home .ed-secondary .ed-arrow,.editorial-home .ed-hero-index .ed-arrow{transition:transform .3s ease}
+
+@media(prefers-reduced-motion:no-preference){
+  /* hero copy rises in, one line after the other; cancel the umbrella whole-block intro */
+  .editorial-home .ed-hero-copy{animation:none}
+  .editorial-home .ed-hero-copy>*{animation:studio-rise 1s cubic-bezier(.2,.7,.2,1) both}
+  .editorial-home .ed-hero-copy>:nth-child(2){animation-delay:.12s}
+  .editorial-home .ed-hero-copy>:nth-child(3){animation-delay:.24s}
+  .editorial-home .ed-hero-copy>:nth-child(4){animation-delay:.36s}
+  /* scroll reveals (studio-motion.js adds .rv only to content that is below the fold) */
+  .editorial-home .rv{opacity:0;transform:translate3d(0,34px,0);
+    transition:opacity .9s cubic-bezier(.2,.7,.2,1) var(--rv-delay,0ms),transform .9s cubic-bezier(.2,.7,.2,1) var(--rv-delay,0ms)}
+  .editorial-home .rv.rv-in{opacity:1;transform:none}
+  .editorial-home .ed-service-image.rv{transform:translate3d(0,48px,0) scale(.985)}
+  .editorial-home .ed-service-image.rv.rv-in{transform:none}
+  /* hover lift & glow */
+  .editorial-home .button:hover,.editorial-home .ed-whatsapp:hover{transform:translateY(-3px)}
+  .editorial-home .ed-hero-index a:hover{transform:translateY(-4px)}
+  .editorial-home .ed-service:hover .ed-service-image{transform:translateY(-6px)}
+  .editorial-home .ed-service:hover .ed-service-image img{transform:scale(1.045)}
+  .editorial-home .text-link:hover .ed-arrow,.editorial-home .ed-secondary:hover .ed-arrow,.editorial-home .ed-hero-index a:hover .ed-arrow{transform:translateX(5px)}
+}
+@keyframes studio-rise{from{opacity:0;transform:translate3d(0,26px,0)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){
+  .editorial-home *,.editorial-home *:before,.editorial-home *:after{animation:none!important;transition:none!important}
+  .editorial-home .rv{opacity:1!important;transform:none!important}
+}
