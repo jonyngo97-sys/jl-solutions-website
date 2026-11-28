@@ -18,7 +18,7 @@ async function copyPublic(source,target) {
 await copyPublic('.','dist');
 await prepareStockPhotos();
 const pages=['','en/','vi/'].flatMap(prefix=>['index.html','gravur.html','smart-qr.html','growth-ai.html','events.html','photo-film.html','digital.html'].map(file=>prefix+file));
-for(const file of [...pages,'chat.js','script.js','experience.js','styles.css','umbrella.css','studio.css','datenschutz.html']) await access(join('dist',file));
+for(const file of [...pages,'chat.js','script.js','experience.js','studio-motion.js','styles.css','umbrella.css','studio.css','datenschutz.html']) await access(join('dist',file));
 for(const page of pages) {
   if(!(await readFile(join('dist',page),'utf8')).includes('src="/chat.js"')) throw new Error(`${page}: Chat-Einbindung fehlt.`);
 }
